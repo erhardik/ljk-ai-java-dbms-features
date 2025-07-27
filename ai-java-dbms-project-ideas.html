@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI-Powered Java+DBMS Project Innovations – LJ University</title>
+<link rel="icon" href="ljku-logo.png" type="image/png" />
+<meta name="description" content="Interactive showcase of 50 innovative AI project categories for Java + DBMS, made for LJ University students."/>
+<style>
+  :root {
+    --ljku-blue: #1a237e;
+    --ljku-gold: #fbc02d;
+    --light-bg: #f8fafc;
+    --card-bg: #fff;
+    --accent: #164398;
+  }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--light-bg);
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  .nav {
+    background: var(--ljku-blue);
+    color: var(--ljku-gold);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 6px #0002;
+  }
+  .nav img {
+    height: 52px;
+    margin-right: 14px;
+  }
+  .nav-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    flex: 1;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto 0 auto;
+    background: #fff;
+    padding: 20px 18px 28px 18px;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #1a237e0c;
+  }
+  h1 {
+    text-align: center;
+    color: var(--ljku-blue);
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+  }
+  .subtitle {
+    text-align: center;
+    color: #202a60;
+    font-size: 1.13rem;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  #searchBox {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 26px auto;
+    display: block;
+    padding: 11px 16px;
+    font-size: 1.09rem;
+    border: 2px solid var(--ljku-blue);
+    border-radius: 9px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    margin-bottom: 28px;
+  }
+  #searchBox:focus {
+    border-color: var(--ljku-gold);
+    outline: 1.5px solid var(--ljku-gold);
+  }
+  .category {
+    background: var(--card-bg);
+    border-radius: 11px;
+    margin-bottom: 13px;
+    box-shadow: 0 1px 4px #1a237e14;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    border: 1.7px solid #ececec;
+  }
+  .category-header {
+    background: var(--ljku-blue);
+    color: var(--ljku-gold);
+    cursor: pointer;
+    padding: 0.86em 1.2em;
+    font-weight: bold;
+    font-size: 1.13rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    outline: none;
+    border: none;
+  }
+  .category-header:focus {
+    background: #23347e;
+    color: #fffde7;
+  }
+  .category-header:hover {
+    background: #283593;
+    color: #fbe778;
+  }
+  .features-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s;
+    background: var(--card-bg);
+    padding: 0 22px;
+  }
+  .features-list.open {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+  .features-list ul {
+    padding-left: 14px;
+    margin: 0;
+    list-style-type: disc;
+  }
+  .features-list li {
+    margin-bottom: 7px;
+    line-height: 1.58;
+    color: #2d3556;
+    font-size: 1.045rem;
+  }
+  .toggle-icon {
+    font-size: 1.15rem;
+    transition: transform 0.3s;
+  }
+  .toggle-icon.open {
+    transform: rotate(90deg);
+  }
+  .made-for {
+    text-align: center;
+    padding: 0.8em 0 0 0;
+    font-size: 1.05rem;
+    color: var(--ljku-blue);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 720px) {
+    main {
+      margin: 0.8em 0.6em 0 0.6em;
+      padding: 13px 5vw 22px 5vw;
+      border-radius: 12px;
+    }
+    .nav {
+      padding: 0.4rem 0.7rem;
+    }
+    .nav img {
+      height: 38px;
+    }
+  }
+  @media (max-width: 430px) {
+    h1 {
+      font-size: 1.28rem;
+    }
+    .category-header, .made-for {
+      font-size: 0.99rem;
+    }
+    #searchBox {
+      font-size: 0.97rem;
+    }
+    main {
+      padding: 8px 2vw 12px 2vw;
+      border-radius: 8px;
+    }
+  }
+  footer {
+    text-align: center;
+    margin: 22px auto 0 auto;
+    font-size: 0.87rem;
+    color: #607d8b;
+    letter-spacing: 0.02em;
+    padding-bottom: 18px;
+    padding-top: 11px;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <img src="ljku-logo.png" alt="LJ University Logo" />
+  <span class="nav-title">LJ University – Java + DBMS Project Innovations</span>
+</div>
+
+<main>
+  <h1>AI-Powered Java+DBMS Project Innovations</h1>
+  <div class="made-for">Made for <span style="color: var(--ljku-gold); font-weight: bold;">LJ UNIVERSITY</span> Students</div>
+  <div class="subtitle">
+    50 Next-Level AI Categories • 250 Unique Features for Projects <br>
+    Empowerment through Java, Data Structures, &amp; DBMS Innovation
+  </div>
+
+  <input type="text" id="searchBox" placeholder="Search categories or features (try: 'computer vision', 'fraud', 'voice', etc.)" aria-label="Search features and categories" />
+
+  <div id="categoriesContainer">
+    <!-- JavaScript injects categories here -->
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 LJ University | For Educational Use | Themed and generated with Perplexity AI
+</footer>
+
+<script>
+// Below, paste your full 50-category data structure (250 features). Here are just 2 samples:
+const categories = [
+  {
+    title: "1. Quantum-Inspired Data Algorithms",
+    features: [
+      "Quantum-like search for ultra-fast DB queries",
+      "Approximate database joins using simulated qubit logic",
+      "Quantum-resilient data encryption modules",
+      "Parallel transaction simulation (quantum walk-inspired)",
+      "Probabilistic data deduplication algorithms"
+    ]
+  },
+  {
+    title: "2. Edge AI Integration",
+    features: [
+      "On-device anomaly detection before DB sync",
+      "Smart offline cache with AI-powered sync conflict resolution",
+      "Real-time sensor data preprocessing in Java",
+      "Edge analytics dashboard for local decisions",
+      "AI-driven network bandwidth prediction for DB ops"
+    ]
+  },
+  /* ... Please insert all categories 3-50 here with their features ... */
+  {
+    title: "50. Responsible AI Operations",
+    features: [
+      "Live monitoring for ethical AI usage",
+      "Automated impact assessment of DB recommendations",
+      "AI overexposure warning for sensitive actions",
+      "Usage audit trail with bias flagging reports",
+      "User feedback capture with explainability rating tools"
+    ]
+  }
+];
+
+// Category card creation and UI logic
+function createCategoryCard(category, index) {
+  const container = document.createElement('div');
+  container.className = 'category';
+
+  const header = document.createElement('div');
+  header.className = 'category-header';
+  header.tabIndex = 0;
+  header.setAttribute('role', 'button');
+  header.setAttribute('aria-expanded', 'false');
+  header.setAttribute('aria-controls', `features-${index}`);
+  header.id = `category-header-${index}`;
+  header.innerHTML = `
+    <span>${category.title}</span>
+    <span class="toggle-icon">&#9656;</span>
+  `;
+
+  const featuresDiv = document.createElement('div');
+  featuresDiv.className = 'features-list';
+  featuresDiv.id = `features-${index}`;
+  featuresDiv.setAttribute('aria-labelledby', `category-header-${index}`);
+
+  const ul = document.createElement('ul');
+  category.features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    ul.appendChild(li);
+  });
+  featuresDiv.appendChild(ul);
+
+  header.addEventListener('click', () => toggleFeatures(featuresDiv, header));
+  header.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      toggleFeatures(featuresDiv, header);
+    }
+  });
+
+  container.appendChild(header);
+  container.appendChild(featuresDiv);
+  return container;
+}
+
+function toggleFeatures(featuresDiv, header) {
+  const isOpen = featuresDiv.classList.contains('open');
+  if (isOpen) {
+    featuresDiv.style.maxHeight = null;
+    featuresDiv.classList.remove('open');
+    header.setAttribute('aria-expanded', 'false');
+    header.querySelector('.toggle-icon').classList.remove('open');
+  } else {
+    featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
+    featuresDiv.classList.add('open');
+    header.setAttribute('aria-expanded', 'true');
+    header.querySelector('.toggle-icon').classList.add('open');
+  }
+}
+
+const categoriesContainer = document.getElementById('categoriesContainer');
+function renderCategories(list) {
+  categoriesContainer.innerHTML = '';
+  if(list.length === 0){
+    categoriesContainer.innerHTML = '<p style="text-align:center; font-style: italic; color: #aa0033;">No categories/features found.</p>';
+    return;
+  }
+  list.forEach((category, index) => {
+    categoriesContainer.appendChild(createCategoryCard(category, index));
+  });
+}
+renderCategories(categories);
+
+const searchBox = document.getElementById('searchBox');
+searchBox.addEventListener('input', () => {
+  const query = searchBox.value.trim().toLowerCase();
+  if (!query) {
+    renderCategories(categories);
+    return;
+  }
+  const filtered = categories.filter(cat => {
+    const inTitle = cat.title.toLowerCase().includes(query);
+    const inFeatures = cat.features.some(feat => feat.toLowerCase().includes(query));
+    return inTitle || inFeatures;
+  });
+  renderCategories(filtered);
+});
+</script>
+</body>
+</html>
