@@ -132,16 +132,22 @@
     color: #fbe778;
   }
   .features-list {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.45s;
-    background: var(--card-bg);
-    padding: 0 22px;
-  }
-  .features-list.open {
-    padding-top: 12px;
-    padding-bottom: 10px;
-  }
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s;
+  background: var(--card-bg);
+  padding: 0 22px;
+}
+
+.features-list.open {
+  padding-top: 12px;
+  padding-bottom: 10px;
+  /* Set a max visible height and allow vertical scrolling if needed */
+  max-height: 320px !important; /* Adjust this value as you wish */
+  overflow-y: auto;
+  border-bottom: 1px solid #fbc02d33;
+}
+
   .features-list ul {
     padding-left: 14px;
     margin: 0;
@@ -240,150 +246,6 @@
 
 <script>
 // Below, paste your full 50-category data structure (250 features). Here are just 2 samples:
-const categories = [
-  {
-    title: "1. Quantum-Inspired Data Algorithms",
-    features: [
-      "Quantum-like search for ultra-fast DB queries",
-      "Approximate database joins using simulated qubit logic",
-      "Quantum-resilient data encryption modules",
-      "Parallel transaction simulation (quantum walk-inspired)",
-      "Probabilistic data deduplication algorithms"
-    ],
-    descriptions: [
-      "Uses algorithms inspired by quantum computing to search huge databases much faster than normal, helping find information almost instantly—even in very large datasets.",
-      "Combines (joins) related tables in the database using smart estimation methods, like how quantum bits (qubits) guess results, making joins much quicker with little accuracy loss.",
-      "Protects your database with special security methods designed to resist future quantum computer hacks, keeping sensitive data safe for years to come.",
-      "Processes multiple database transactions at once, inspired by how quantum systems can analyze many paths together—leading to faster and more efficient handling of lots of operations.",
-      "Removes duplicate records using probability-based (quantum-style) tests, quickly cleaning up the database even with uncertain or incomplete information."
-    ]
-  },
-  {
-    title: "2. Edge AI Integration",
-    features: [
-      "On-device anomaly detection before DB sync",
-      "Smart offline cache with AI-powered sync conflict resolution",
-      "Real-time sensor data preprocessing in Java",
-      "Edge analytics dashboard for local decisions",
-      "AI-driven network bandwidth prediction for DB ops"
-    ]
-  },
-  {
-    title: "3. Self-Evolving Systems",
-    features: [
-      "AI that rewrites its own optimization rules",
-      "Behavior-driven table partitioning algorithms",
-      "Autonomously generated alternative DB indexes",
-      "Evolving security policies based on attack trends",
-      "Self-tuning JVM/DBMS resource allocation"
-    ]
-  },
-  {
-    title: "4. Cognitive Automation for Compliance",
-    features: [
-      "Auto-flagging compliance risks in records",
-      "Pattern-based legal audit trails",
-      "Dynamic retention policies (data lifecycle mgmt)",
-      "Real-time logging with explainable AI",
-      "Consent management AI in forms highly restricted"
-    ]
-  },
-  {
-    title: "5. Synthetic Data Generation",
-    features: [
-      "Generate test DB datasets from live structures",
-      "Java-based fake transaction simulators",
-      "Automated stress testing with synthetic users",
-      "Masked data snapshot export for privacy",
-      "Synthetic feedback loop for A/B testing algorithms"
-    ]
-  },
-  {
-    title: "6. Bio-Inspired Algorithms",
-    features: [
-      "Swarm intelligence for distributed query routing",
-      "DNA-inspired data compression",
-      "Ant colony optimization for query plans",
-      "Evolutionary anomaly detection in DB logs",
-      "Immune-system-like intrusion reaction"
-    ]
-  },
-  {
-    title: "7. Microinteraction Intelligence",
-    features: [
-      "Ultra-fine analytics of user field-level actions",
-      "AI-driven UI/DB field labeling for accessibility",
-      "Real-time hover/click insights for dashboard tuning",
-      "Smart focus/blur heuristics for DB form optimization",
-      "Dynamic autofill based on user micro-patterns"
-    ]
-  },
-  {
-    title: "8. Social Good & Crisis AI",
-    features: [
-      "Disaster-response record prioritization",
-      "Pandemic-aware resource DB optimization",
-      "Sentiment-driven emergency alert escalation",
-      "Fairness-aware beneficiary distribution",
-      "AI-driven community feedback analytics"
-    ]
-  },
-  {
-    title: "9. Digital Twin Analytics",
-    features: [
-      "Creating virtual (digital twin) models of DB structures",
-      "Predictive maintenance of user records",
-      "Simulating DB performance before rollout",
-      "Visualize ‘what-if’ on record/property changes",
-      "AI to calibrate twin models from DB feedback"
-    ]
-  },
-  {
-    title: "10. Neuro-Symbolic Reasoning",
-    features: [
-      "Hybrid reasoning for rule-based + learned database logic",
-      "Explainable decision chains for complex queries",
-      "Automated reasoning over hierarchical DB structures",
-      "Logic correction suggestions for business rules",
-      "Dynamic rule-extractor for compliance checks"
-    ]
-  },
-  {
-    title: "11. Planet-Scale Database Features",
-    features: [
-      "Distributed DB sync conflict resolution with AI",
-      "Automated sharding recommendations",
-      "AI to predict cross-continent replication delays",
-      "Smart fallback/failover with minimal data loss",
-      "Usage-aware data locality recommendations"
-    ]
-  },
-  {
-    title: "12. Hyper-Personalization Engines",
-    features: [
-      "Micro-segment recommendations in real-time",
-      "DB-powered user intent prediction",
-      "Auto-adjusted dashboard reports per user",
-      "Contextual workflow generation per login",
-      "Time-of-day or event-driven data suggestions"
-    ]
-  },
-  {
-    title: "13. Advanced Accessibility Intelligence",
-    features: [
-      "Live form field adaptation for neurodiverse users",
-      "Real-time voice narrations of analytic dashboards",
-      "Smart auto-summarization of results for vision-impaired",
-      "Multimodal alert prioritization (sound+haptic)",
-      "Touchless DB navigation via gesture mapping (using AI)"
-    ]
-  },
-  {
-    title: "14. Digital Ethics & Privacy AI",
-    features: [
-      "Automated detection of 'toxic' data entries",
-      "Privacy sensitivity scoring per user record",
-      "Policy change impact predictor",
       "Inline justification and log of sensitive DB ops",
       "AI-driven privacy warning generator"
     ]
@@ -643,12 +505,691 @@ const categories = [
     features: [
       "Auto-captioning of multimedia inputs",
       "Text simplification for visually impaired users",
-      "Voice guidance for screen navigation",
-      "Adaptive font size and contrast adjustment",
-      "Detecting and fixing inaccessible form fields"
+      ]
+  }
+
+  const categories = [
+  {
+    title: "1. Quantum-Inspired Data Algorithms",
+    features: [
+      "Quantum-like search for ultra-fast DB queries",
+      "Approximate database joins using simulated qubit logic",
+      "Quantum-resilient data encryption modules",
+      "Parallel transaction simulation (quantum walk-inspired)",
+      "Probabilistic data deduplication algorithms"
+    ],
+    descriptions: [
+      "Uses quantum-inspired logic to find information in very large databases much faster than normal search methods.",
+      "Quickly joins tables using estimation, similar to how quantum bits guess results, sacrificing a tiny amount of accuracy for much greater speed.",
+      "Protects important data with encryption designed to be strong even if quantum computers exist, making the data future-safe.",
+      "Processes many transactions together by simulating parallel decision-making, increasing speed and reducing waiting time.",
+      "Removes duplicate data using smart probability checks, even when the database has inconsistencies or incomplete data."
     ]
   },
   {
+    title: "2. Edge AI Integration",
+    features: [
+      "On-device anomaly detection before DB sync",
+      "Smart offline cache with AI-powered sync conflict resolution",
+      "Real-time sensor data preprocessing in Java",
+      "Edge analytics dashboard for local decisions",
+      "AI-driven network bandwidth prediction for DB ops"
+    ],
+    descriptions: [
+      "Checks for errors or unusual activity on the device itself, so only clean, useful data goes to the main database.",
+      "Uses AI to keep data updated and resolve conflicts when users work offline and then sync, ensuring nothing is lost or incorrect.",
+      "Processes incoming sensor data directly through Java code before sending it for storage or analysis, improving speed and accuracy.",
+      "Creates dashboards that analyze data locally so decisions can be made quickly without waiting for the main server.",
+      "Uses AI to predict when the network will be too slow or overloaded, adjusting database operations for smoother performance."
+    ]
+  },
+  {
+    title: "3. Self-Evolving Systems",
+    features: [
+      "AI that rewrites its own optimization rules",
+      "Behavior-driven table partitioning algorithms",
+      "Autonomously generated alternative DB indexes",
+      "Evolving security policies based on attack trends",
+      "Self-tuning JVM/DBMS resource allocation"
+    ],
+    descriptions: [
+      "Lets the AI learn from experience and improve the way the code or queries are run without human help.",
+      "Pairs and splits tables in smarter ways based on how users interact, speeding up frequent tasks.",
+      "Creates new or better indexes automatically as usage patterns change, making future queries faster.",
+      "Automatically improves security settings when it recognizes new or changing threats.",
+      "Continuously adjusts how much memory and processing power Java or the DBMS uses without human intervention."
+    ]
+  },
+  {
+    title: "4. Cognitive Automation for Compliance",
+    features: [
+      "Auto-flagging compliance risks in records",
+      "Pattern-based legal audit trails",
+      "Dynamic retention policies (data lifecycle mgmt)",
+      "Real-time logging with explainable AI",
+      "Consent management AI in forms highly restricted"
+    ],
+    descriptions: [
+      "Automatically detects and marks records that may not follow company rules or government laws.",
+      "Creates detailed records of who did what and when, using patterns for more accurate legal compliance.",
+      "Adjusts how long data is kept based on rules the AI learns, helping manage storage and privacy.",
+      "Records every change and access to data and explains why, increasing trust and clarity.",
+      "Checks that users gave proper permission for restricted forms and logs everything securely."
+    ]
+  },
+  {
+    title: "5. Synthetic Data Generation",
+    features: [
+      "Generate test DB datasets from live structures",
+      "Java-based fake transaction simulators",
+      "Automated stress testing with synthetic users",
+      "Masked data snapshot export for privacy",
+      "Synthetic feedback loop for A/B testing algorithms"
+    ],
+    descriptions: [
+      "Creates artificial (but realistic) data using current database patterns, ideal for safe testing.",
+      "Simulates fake but realistic transactions in Java to test system behavior.",
+      "Uses AI to stress test systems by simulating hundreds or thousands of fake users.',
+      "Exports data with sensitive information hidden, allowing safe sharing or testing.",
+      "Automatically generates and uses fake user input for comparing different algorithms (A/B testing)."
+    ]
+  },
+  {
+    title: "6. Bio-Inspired Algorithms",
+    features: [
+      "Swarm intelligence for distributed query routing",
+      "DNA-inspired data compression",
+      "Ant colony optimization for query plans",
+      "Evolutionary anomaly detection in DB logs",
+      "Immune-system-like intrusion reaction"
+    ],
+    descriptions: [
+      "Routes database requests efficiently by imitating how insects like bees or ants work together in swarms.",
+      "Compresses data using logic similar to how DNA stores lots of information in a tiny space.",
+      "Improves query plans using strategies from ant colonies, making searches quicker.",
+      "Detects unusual database behavior using algorithms that evolve and learn over time, like natural selection.",
+      "Responds to suspicious database access the way the immune system reacts to threats, preventing and correcting problems fast."
+    ]
+  },
+  {
+    title: "7. Microinteraction Intelligence",
+    features: [
+      "Ultra-fine analytics of user field-level actions",
+      "AI-driven UI/DB field labeling for accessibility",
+      "Real-time hover/click insights for dashboard tuning",
+      "Smart focus/blur heuristics for DB form optimization",
+      "Dynamic autofill based on user micro-patterns"
+    ],
+    descriptions: [
+      "Captures and analyzes every small user action (e.g., typing, clicking fields) to improve usability and catch issues early.",
+      "Applies AI to make labels and instructions clearer, improving accessibility for all users.",
+      "Watches how users use the interface to suggest changes for better dashboard performance.",
+      "Learns from which form fields users select or skip, suggesting ways to reduce errors.",
+      "Fills form fields automatically by recognizing unique user input habits and preferences."
+    ]
+  },
+  {
+    title: "8. Social Good & Crisis AI",
+    features: [
+      "Disaster-response record prioritization",
+      "Pandemic-aware resource DB optimization",
+      "Sentiment-driven emergency alert escalation",
+      "Fairness-aware beneficiary distribution",
+      "AI-driven community feedback analytics"
+    ],
+    descriptions: [
+      "Detects urgent records or needs during disasters, making sure the most critical cases are handled first.",
+      "Optimizes resource data (like beds, equipment) in pandemics to save lives.",
+      "Reads the tone or urgency in emergency messages and raises critical alerts faster.",
+      "Distributes help and support fairly using AI to avoid bias during crisis aid.",
+      "Analyzes community or user feedback after emergencies to improve operations for the future."
+    ]
+  },
+  {
+    title: "9. Digital Twin Analytics",
+    features: [
+      "Creating virtual (digital twin) models of DB structures",
+      "Predictive maintenance of user records",
+      "Simulating DB performance before rollout",
+      "Visualize ‘what-if’ on record/property changes",
+      "AI to calibrate twin models from DB feedback"
+    ],
+    descriptions: [
+      "Builds a virtual copy of the database structure to run tests or simulations without affecting real data.",
+      "Warns if user or asset records are likely to create problems, so they can be fixed before issues occur.",
+      "Tests how a new database system will perform before it’s fully launched.",
+      "Shows what will happen to related data if you change one entry, preventing mistakes.",
+      "AI auto-adjusts the virtual twin model based on real performance, making simulations more accurate over time."
+    ]
+  },
+  {
+    title: "10. Neuro-Symbolic Reasoning",
+    features: [
+      "Hybrid reasoning for rule-based + learned database logic",
+      "Explainable decision chains for complex queries",
+      "Automated reasoning over hierarchical DB structures",
+      "Logic correction suggestions for business rules",
+      "Dynamic rule-extractor for compliance checks"
+    ],
+    descriptions: [
+      "Combines 'if-then' rules and AI learning to make smarter decisions in the database.",
+      "Shows how the system made a decision, step by step, so users can understand why a result was given.",
+      "Handles complex, tree-like databases by making connections and reasoning at every level.",
+      "Finds possible errors in business logic and suggests fixes.",
+      "Automatically finds business rules hidden in data for auditing and compliance."
+    ]
+  },
+  {
+    title: "11. Planet-Scale Database Features",
+    features: [
+      "Distributed DB sync conflict resolution with AI",
+      "Automated sharding recommendations",
+      "AI to predict cross-continent replication delays",
+      "Smart fallback/failover with minimal data loss",
+      "Usage-aware data locality recommendations"
+    ],
+    descriptions: [
+      "Uses AI to fix data conflicts when multiple databases across the world sync their changes.",
+      "Suggests best ways to divide a very large database for faster global performance.",
+      "Predicts delays when sharing data worldwide so users know what to expect.",
+      "Automatically switches to backup databases if the main one fails, with almost no loss or interruption.",
+      "Suggests keeping copies of data closer to regions with most usage, making apps faster for everyone."
+    ]
+  },
+  {
+    title: "12. Hyper-Personalization Engines",
+    features: [
+      "Micro-segment recommendations in real-time",
+      "DB-powered user intent prediction",
+      "Auto-adjusted dashboard reports per user",
+      "Contextual workflow generation per login",
+      "Time-of-day or event-driven data suggestions"
+    ],
+    descriptions: [
+      "Delivers specialized recommendations to very small groups of users instantly.",
+      "Predicts why a user is visiting or what they want to do, and customizes their view.",
+      "Every user sees dashboards customized to their needs, not just generic charts.",
+      "Changes the steps and screens users see based on their unique preferences.",
+      "Suggests reports or actions that are most useful at that exact time or event."
+    ]
+  },
+  {
+    title: "13. Advanced Accessibility Intelligence",
+    features: [
+      "Live form field adaptation for neurodiverse users",
+      "Real-time voice narrations of analytic dashboards",
+      "Smart auto-summarization of results for vision-impaired",
+      "Multimodal alert prioritization (sound+haptic)",
+      "Touchless DB navigation via gesture mapping (using AI)"
+    ],
+    descriptions: [
+      "Changes form fields on the fly to better support users with learning or thinking differences.",
+      "Reads dashboard results aloud for users who have trouble seeing the screen.",
+      "Summarizes complex results in simple terms that are easy to hear or read.",
+      "Uses sound and gentle vibration to alert users in inclusive ways.",
+      "Lets users control the system by moving or gesturing instead of clicking."
+    ]
+  },
+  {
+    title: "14. Digital Ethics & Privacy AI",
+    features: [
+      "Automated detection of 'toxic' data entries",
+      "Privacy sensitivity scoring per user record",
+      "Policy change impact predictor",
+      "Inline justification and log of sensitive DB ops",
+      "AI-driven privacy warning generator"
+    ],
+    descriptions: [
+      "Catches and warns about inappropriate, hateful, or offensive entries automatically.",
+      "Shows how sensitive each piece of user data is and who should access it.",
+      "Predicts how new privacy rules will affect existing procedures.",
+      "Provides a clear reason and trail whenever sensitive operations are done.",
+      "Alerts users about privacy risks as they happen, helping prevent data mishandling."
+    ]
+  },
+  {
+    title: "15. AI for Resource Optimization",
+    features: [
+      "Load spike forecasts for DB capacity",
+      "JVM memory optimization hints",
+      "Query path suggestion for least compute cost",
+      "Disk I/O scheduling (AI-driven)",
+      "AI-based ‘green mode’ for energy saving"
+    ],
+    descriptions: [
+      "Warns administrators when many people will use the database at once, so they can prepare.",
+      "Gives tips to use less memory in Java programs, speeding up apps and lowering costs.",
+      "Suggests the shortest, cheapest routes for data queries to reduce computer power used.",
+      "Optimizes how disk reads and writes are scheduled for maximum speed.",
+      "Introduces automatic energy saving strategies, like dimming screens or slowing non-critical tasks."
+    ]
+  },
+  {
+    title: "16. Decentralized Trust & Reputation",
+    features: [
+      "Distributed ledger simulation for internal audit trails",
+      "AI-score for data trustworthiness",
+      "User reputation tracking in enterprise DBs",
+      "Transparency-powered record history UIs",
+      "Dispute resolution suggestions based on record behavior"
+    ],
+    descriptions: [
+      "Creates a blockchain-style record of all actions for easy tracking and accountability.",
+      "Gives each data entry a trust or quality score so users know which results are reliable.",
+      "Keeps a running history of user reliability so you can spot trusted vs. new/unknown users.",
+      "Shows every change to each record in a visual, trackable way.",
+      "Helps resolve debates by explaining what happened to a record over time."
+    ]
+  },
+  {
+    title: "17. Proactive Health & Safety AI",
+    features: [
+      "Early warning for unsafe DB/tech resource use",
+      "Automated burnout detection in support ticket DBs",
+      "Health compliance alerts from facility DBs",
+      "Resource strain prediction and recommendation",
+      "Emergency contact prioritization algorithms"
+    ],
+    descriptions: [
+      "Alerts admins if the system is being used in risky or unsafe ways before disaster happens.",
+      "Detects staff exhaustion or stress through smart analysis of support tickets and workflow.",
+      "Flags potential health code violations from the data.",
+      "Warns before systems are overloaded, suggesting ways to prevent breakdowns.",
+      "Ensures the most critical emergency contacts are reached first when needed."
+    ]
+  },
+  {
+    title: "18. Lifelong Learning DB Systems",
+    features: [
+      "AI that continually improves DB queries",
+      "Pattern learning on failed transactions",
+      "Recommendation refinement by feedback",
+      "Autonomous DB migration suggestions over time",
+      "User-initiated 'teach me' feature for custom ops"
+    ],
+    descriptions: [
+      "Learns from past searches to always make future queries faster and better.",
+      "Learns what causes transaction failures and adapts to avoid repeat mistakes.",
+      "Improves advice and suggestions based on user feedback each time.",
+      "Tells you when it’s time to move to a new database (auto-migration advice) based on growth.",
+      "Lets users train the system for new shortcuts and custom needs."
+    ]
+  },
+  {
+    title: "19. Interconnected Ecosystem AI",
+    features: [
+      "Auto-integration suggestion for external DBs",
+      "Ontology-driven link inference across schemas",
+      "DB relationship visualization from massive datasets",
+      "AI to propose API endpoints from DB patterns",
+      "Dynamic connector generator for enterprise systems"
+    ],
+    descriptions: [
+      "Suggests quick ways to connect different databases together for better insights.",
+      "Finds hidden links between different data structures using advanced AI.",
+      "Generates easy-to-understand maps of even very large, complex database relationships.",
+      "Advises what API features to build based on real data usage patterns.",
+      "Automatically builds connectors for new systems needing database access."
+    ]
+  },
+  {
+    title: "20. Gamification of Analytics & Training",
+    features: [
+      "Points/rewards system for DB power users",
+      "AI-generated quizzes from user data",
+      "Smart leaderboard for workflow efficiency",
+      "Challenge missions in interacting with DB",
+      "Training modules personalized by DB user profile"
+    ],
+    descriptions: [
+      "Motivates users with points and rewards for using advanced database features.",
+      "Creates quizzes automatically from recent data to keep staff learning and engaged.",
+      "Shows who is most efficient at using the system in a friendly competition style.",
+      "Provides fun, challenging tasks that teach real skills while users interact with data.",
+      "Tailors training materials to each user's actual data and behavior."
+    ]
+  },
+  {
+    title: "21. Conversational Interfaces",
+    features: [
+      "Multilingual speech-to-text",
+      "Natural language (NL) to SQL conversion",
+      "Intelligent voice-driven forms",
+      "Context-aware chatbots",
+      "Virtual interview bots"
+    ],
+    descriptions: [
+      "Allows users to enter information through voice in multiple languages, making input faster.",
+      "Lets users ask database questions in plain English, which the system converts to exact database queries.",
+      "Fills in forms using voice commands, no keyboard needed.",
+      "Chatbots that understand the current context and can provide accurate, personalized help.",
+      "Simulates a job or admission interview using AI, saving faculty time."
+    ]
+  },
+  {
+    title: "22. Smart Notifications",
+    features: [
+      "Automated output delivery via email/WhatsApp",
+      "Event-triggered smart alerts",
+      "Predictive reminders (e.g., deadlines, renewals)",
+      "Actionable push notifications based on user behavior",
+      "Escalation management for unresolved issues"
+    ],
+    descriptions: [
+      "Sends results to users instantly through email or WhatsApp.",
+      "Notifies users when important database events happen, so nothing is missed.",
+      "Reminds users in advance of deadlines or renewals before they arrive.",
+      "Sends push alerts based on what users are actually doing in the app.",
+      "Automatically follows up or escalates when problems aren't fixed."
+    ]
+  },
+  {
+    title: "23. Anomaly & Fraud Detection",
+    features: [
+      "Real-time anomaly detection on transactions",
+      "Pattern recognition in user activity",
+      "Risk scoring for financial entries",
+      "Alerting for suspicious behaviors",
+      "Auditable AI explanation of flagged events"
+    ],
+    descriptions: [
+      "Watches for unusual or suspicious activity in real time.",
+      "Learns normal patterns and finds strange (possibly fraudulent) actions.",
+      "Scores each transaction entry for possible risk/fraud.",
+      "Raises an alert as soon as rules are broken or something odd occurs.",
+      "Explains why a transaction was flagged so admins can quickly verify."
+    ]
+  },
+  {
+    title: "24. Recommendation Systems",
+    features: [
+      "Product/service suggestions based on user history",
+      "Dynamic content personalization",
+      "Adaptive workflow/process recommendations",
+      "Similar case retrieval (database search)",
+      "Automated upsell/cross-sell suggestions"
+    ],
+    descriptions: [
+      "Recommends new items or upgrades based on what users bought or viewed before.",
+      "Changes the site or app content on the fly to fit each user’s needs.",
+      "Suggests better ways to complete tasks complete tasks based on current and past user behavior.",
+      "Finds and brings up similar records and solutions automatically.",
+      "Advises users of helpful extras based on prior selections."
+    ]
+  },
+  {
+    title: "25. Predictive Analytics",
+    features: [
+      "Trend forecasting (sales, inventory, fraud, etc.)",
+      "Predictive form auto-fill",
+      "Forecasting task/project completion timelines",
+      "Churn prediction models for users",
+      "Demand/supply prediction for resources"
+    ],
+    descriptions: [
+      "Predicts future business trends such as sales, stock, or fraud risks from current data.",
+      "Automatically fills forms with likely answers using past patterns.",
+      "Estimates when projects or tasks will finish given current inputs.",
+      "Predicts which users are likely to leave or stop using the system.",
+      "Forecasts how much will be needed or available for any resource."
+    ]
+  },
+  {
+    title: "26. Data Extraction & Processing",
+    features: [
+      "Image-to-text (OCR for invoices/orders)",
+      "Automatic extraction of tables from documents",
+      "Video/audio transcription for database entry",
+      "Intelligent document classification",
+      "Multi-format data ingestion (PDF, image, voice)"
+    ],
+    descriptions: [
+      "Reads and extracts text from images, invoices, or receipts and saves to the database.",
+      "Pulls out tables and important data from documents without manual effort.",
+      "Converts spoken or video data into text records for tracking.",
+      "Automatically recognizes and organizes new documents by type.",
+      "Accepts data from many formats and standardizes it for easy database storage."
+    ]
+  },
+  {
+    title: "27. Security & Access Control",
+    features: [
+      "AI-powered access control (behavioral biometrics)",
+      "Adaptive authentication for anomalies",
+      "Phishing/fraudulent login detection",
+      "Role-based suggestion of permissions",
+      "Dynamic audit trail summaries"
+    ],
+    descriptions: [
+      "Uses AI to recognize individual behaviors for secure, customized access.",
+      "Steps up security checks when something abnormal happens during login.",
+      "Identifies and blocks fake or phishing login attempts.",
+      "Suggests role permissions based on job or previous usage.",
+      "Creates easy-to-read summaries of system use for audits."
+    ]
+  },
+  {
+    title: "28. Automation & Optimization",
+    features: [
+      "Automated report generation",
+      "Intelligent resource allocation (CPU, DB, memory)",
+      "Smart scheduling (meetings, shifts)",
+      "Auto-scaling of compute/database instances",
+      "Workflow optimization using user behavior analytics"
+    ],
+    descriptions: [
+      "Automatically creates reports from your database without needing manual input.",
+      "Adjusts how resources are used based on need for faster performance.",
+      "Schedules meetings, shifts, or tasks with the least possible conflict.",
+      "Increases or decreases computing/database resources as needed for cost savings.",
+      "Analyzes usage to suggest changes that make business flow faster and smoother."
+    ]
+  },
+  {
+    title: "29. Self-Diagnosis & Maintenance",
+    features: [
+      "AI-driven system health monitoring",
+      "Predictive maintenance alerts for hardware/software",
+      "Root cause analysis for performance drops",
+      "Automated log summarization",
+      "Early-warning of database performance issues"
+    ],
+    descriptions: [
+      "Uses AI to keep watch over the system health and fix issues early.",
+      "Sends warnings before things break so you can fix them in advance.",
+      "Automatically finds the main cause when system speed drops.",
+      "Reads and summarizes long logs so admins catch issues fast.",
+      "Alerts users when the database starts slowing before a real problem occurs."
+    ]
+  },
+  {
+    title: "30. User Experience Enhancement",
+    features: [
+      "Intent prediction (anticipating user needs in UI)",
+      "In-app help/FAQ suggestion bots",
+      "Contextual tooltips and onboarding assistance",
+      "Smart form auto-completion based on previous patterns",
+      "Personalized dashboard creation based on user behavior"
+    ],
+    descriptions: [
+      "Predicts what users will do next and offers shortcuts or suggestions.",
+      "Helps users instantly using chatbot-based help or FAQ tools within the application.",
+      "Shows tooltips and helps guides exactly when and where they're needed.",
+      "Auto-fills forms based on users’ previous answers/screen activity.",
+      "Builds custom dashboards for every user automatically."
+    ]
+  },
+  {
+    title: "31. Computer Vision",
+    features: [
+      "Image classification for record matching",
+      "Barcode/QR code scanning and DB update",
+      "Receipt/invoice parsing (OCR)",
+      "Face detection for access control",
+      "Visual defect detection in uploaded images"
+    ],
+    descriptions: [
+      "Analyzes and sorts images, matching them with the correct database records.",
+      "Reads barcodes or QR codes with a camera and instantly updates the database.",
+      "Scans receipts or invoices and extracts the important fields for storage.",
+      "Uses a webcam or picture to recognize faces and control access.",
+      "Detects faults or errors in uploaded images (for example, spotting cracks in products)."
+    ]
+  },
+  {
+    title: "32. Explainable AI & Trust",
+    features: [
+      "Transparent recommendation explanations",
+      "Visual trace of NLP-to-SQL parsing",
+      "User trust scoring for suggested actions",
+      "Model outcome justifications on predictions",
+      "Transparent audit logs of AI actions"
+    ],
+    descriptions: [
+      "Explains in simple terms why each suggestion or recommendation was made.",
+      "Shows step-by-step how a natural language query was turned into SQL.",
+      "Gives each suggestion a trust score based on data reliability.",
+      "Lets users see why the AI predicted or chose a certain result.",
+      "Keeps open logs of all AI decisions so anyone can review and understand them."
+    ]
+  },
+  {
+    title: "33. Generative AI Content",
+    features: [
+      "Automated report or summary generation",
+      "GenAI-driven email draft creation from data",
+      "Auto-filled feedback/responses based on history",
+      "Database-driven personalized notification content",
+      "Suggesting possible corrections for invalid entries"
+    ],
+    descriptions: [
+      "Creates full reports or summaries automatically using database results.",
+      "Drafts emails automatically based on fresh data and business patterns.",
+      "Generates instant feedback or responses to users using past responses.",
+      "Sends notifications individualized for each user based on data trends.",
+      "Suggests fixes and corrections if an entry looks wrong or inconsistent."
+    ]
+  },
+  {
+    title: "34. Knowledge Graphs & Insights",
+    features: [
+      "Auto-building knowledge graphs from DB",
+      "Interactive visual entity-relationship navigation",
+      "Suggesting new links/relations from data",
+      "Graph-based trend and pattern discovery",
+      "Question answering from knowledge base"
+    ],
+    descriptions: [
+      "Creates complex maps of how all data and entities are related for deeper insight.",
+      "Lets users browse data by following links and connections visually.",
+      "Recommends new links like shared vendors, people, or interests from current data.",
+      "Finds new patterns by analyzing the shape of the data graph.",
+      "Answers user questions by searching relationships and facts in the data graph."
+    ]
+  },
+  {
+    title: "35. Ethical AI & Fairness",
+    features: [
+      "Bias detection in business logic and DB results",
+      "Fairness-aware access control",
+      "Ethical filter for sensitive communications",
+      "Explain-and-mitigate unfair outcomes",
+      "Audit trails for compliance with policies"
+    ],
+    descriptions: [
+      "Checks the system for hidden bias or unfair rules and highlights them.",
+      "Controls access to sensitive systems more fairly, not just based on role or seniority.",
+      "Screens all messages and suggestions to filter out biased or harmful statements.",
+      "Explains clearly if/why a decision might be unfair, so admins can fix it.",
+      "Records all decisions related to fairness and ethics for future checking."
+    ]
+  },
+  {
+    title: "36. Sustainability & Green AI",
+    features: [
+      "Smart energy/resource consumption alerts",
+      "Auto-scheduling high-load tasks off-peak",
+      "Emission/consumption tracking dashboard",
+      "AI-driven paperless document flow",
+      "Patterns for eco-friendly user action suggestions"
+    ],
+    descriptions: [
+      "Warns if the system or users are wasting energy, suggesting changes.",
+      "Automatically runs heavy jobs at night or off-peak to save power.",
+      "Shows real-time data on energy/carbon usage to encourage better habits.",
+      "Encourages digital-only document and approval systems to save paper.",
+      "Finds and suggests ways users can act greener in the system."
+    ]
+  },
+  {
+    title: "37. Real-time Collaboration",
+    features: [
+      "Live document/input co-editing with AI suggestions",
+      "Conflict detection/resolution in shared DB edits",
+      "AI-moderated chat/discussion rooms",
+      "Real-time auto-translation in multi-lingual teams",
+      "Smart task allocation/coordinating agents"
+    ],
+    descriptions: [
+      "Lets multiple users edit the same record simultaneously, with suggestions to avoid mistakes.",
+      "Detects when changes conflict and helps users resolve them instantly.",
+      "Uses AI to keep chat productive, flag rude or off-topic posts, and suggest resources.",
+      "Translates chat or comments instantly for teams using different languages.",
+      "Automatically distributes incoming work to the right users or teams for best speed."
+    ]
+  },
+  {
+    title: "38. Event & Calendar Intelligence",
+    features: [
+      "AI-driven meeting/task auto-scheduling",
+      "Smart reminders prioritizing urgent events",
+      "Suggesting optimal meeting times (from DB)",
+      "Intelligent dependency mapping for project planning",
+      "Contextual rescheduling for conflicts"
+    ],
+    descriptions: [
+      "Schedules meetings automatically by checking everyone’s calendar and priorities.",
+      "Sends reminders as events become urgent or overlap.",
+      "Suggests times when everyone is free using the latest data.",
+      "Visualizes which tasks depend on others so planning is simpler.",
+      "Quickly reschedules events if something comes up or conflicts appear."
+    ]
+  },
+  {
+    title: "39. User Profiling & Segmentation",
+    features: [
+      "Multi-factor user clustering for personalized UX",
+      "Role-based adaptive UI/UX",
+      "Real-time profiling for fraud or churn detection",
+      "Behavioral pattern-based promotions",
+      "Dynamic group recommendations for notifications"
+    ],
+    descriptions: [
+      "Groups users using multiple traits to customize their experience.",
+      "Changes the interface for different user roles automatically.",
+      "Watches user behavior live, catching fraudsters and predicting who might leave.",
+      "Suggests deals and messages only to users with matching patterns.",
+      "Creates notification groups on the fly based on who needs them."
+    ]
+  },
+  {
+    title: "40. Accessibility Enhancement",
+    features: [
+      "Auto-captioning of multimedia inputs",
+      "Text simplification for visually impaired users",
+      "Voice guidance for screen navigation",
+      "Adaptive font size and contrast adjustment",
+      "Detecting and fixing inaccessible form fields"
+    ],
+    descriptions: [
+      "Adds closed captions to videos or spoken content automatically.",
+      "Rewrites text in simpler words for better readability.",
+      "Speaks navigation or instructions aloud when needed.",
+      "Lets users change font and color contrast instantly.",
+      "Finds and fixes forms that are difficult for users with disabilities."
+    ]
+  },
+    {
     title: "41. Federated Intelligence",
     features: [
       "Distributed learning across branch databases",
@@ -656,6 +1197,13 @@ const categories = [
       "Multi-location consensus anomaly detection",
       "Federated privacy compliance checking",
       "Decentralized feedback loop optimization"
+    ],
+    descriptions: [
+      "Shares learning between databases at different locations while keeping private data safe.",
+      "Updates the main system securely without needing to move all data to a single location.",
+      "Detects problems only when many places report them, preventing false alarms.",
+      "Checks privacy requirements everywhere without exposing or copying local data.",
+      "Improves the learning process by gathering only safe, allowed input from all locations."
     ]
   },
   {
@@ -666,6 +1214,13 @@ const categories = [
       "Crypto-tokenized user behavior analytics",
       "Mini-blockchain emulation in Java DB for transparency",
       "Self-validating DB operations with signature verification"
+    ],
+    descriptions: [
+      "Links each record update with a secure digital fingerprint to prevent tampering.",
+      "Creates audit logs that can never be edited or deleted, increasing trust.",
+      "Rewards positive behavior and tracks activity using digital tokens.",
+      "Simulates blockchain-style record keeping for total transparency in app data.",
+      "Checks every important operation with digital signatures before saving changes."
     ]
   },
   {
@@ -676,6 +1231,13 @@ const categories = [
       "Mood-driven content or feature recommendations",
       "AI-detected urgency in user queries with dynamic prioritization",
       "Real-time context tagging for DB records"
+    ],
+    descriptions: [
+      "Changes the workflow automatically if it's a holiday, weekend, or peak hour.",
+      "Reads the tone in what users enter and adapts the form feedback (for example, warns if frustration is detected).",
+      "Recommends features or content based on user mood detected from their input.",
+      "Recognizes urgent requests and prioritizes them for faster problem-solving.",
+      "Tags entries with real context (where/from whom/why) to improve clarity."
     ]
   },
   {
@@ -686,6 +1248,13 @@ const categories = [
       "Compliance clause suggestion inside forms",
       "Historic legal trend mining in contracts DB",
       "Contract renewal predictor using record patterns"
+    ],
+    descriptions: [
+      "Finds special cases in legal files that may need human review.",
+      "Builds legal or business contracts automatically based on database settings.",
+      "Suggests the right compliance checklist for each contract or form.",
+      "Finds and visualizes trends in old legal agreements.",
+      "Warns when contracts need to be renewed or reviewed soon."
     ]
   },
   {
@@ -696,6 +1265,13 @@ const categories = [
       "International compliance checker (GDPR, HIPAA, etc.)",
       "Smart timezone/locale data auto-conversion",
       "Regional pricing/recommendation AI for global DB apps"
+    ],
+    descriptions: [
+      "Automatically shows the interface in the user's main language.",
+      "Warns of data issues based on local laws or cultural expectations.",
+      "Checks for laws and compliance in each user's region automatically.",
+      "Converts dates, times and currency to match the user's locality.",
+      "Adapts prices, features and suggestions for each international region."
     ]
   },
   {
@@ -706,6 +1282,13 @@ const categories = [
       "Self-organizing agent swarm for DB optimization",
       "Peer review simulation inside enterprise workflows",
       "Smart role assignment based on DB/project history"
+    ],
+    descriptions: [
+      "Splits big jobs into small pieces handled by separate agents, speeding up completion.",
+      "Bots automatically negotiate to avoid edit conflicts when several users act at once.",
+      "Agents organize and re-balance themselves for optimal database performance.",
+      "Simulates a review process where agents check each other's work for errors.",
+      "Automatically assigns roles based on who has managed similar projects successfully."
     ]
   },
   {
@@ -716,6 +1299,13 @@ const categories = [
       "UI automation validation using DB as system-of-record",
       "Dynamic RPA path suggestion based on recent errors",
       "Scheduled maintenance RPA with predictive triggers"
+    ],
+    descriptions: [
+      "Records users' steps then replays them to automate complex or repetitive tasks.",
+      "Bots adapt automatically if the database structure changes.",
+      "Checks that every automation follows the correct records in the database.",
+      "RPA changes its task sequence based on recent mistakes for better results.",
+      "Schedules bots to run at the best times, often before issues appear."
     ]
   },
   {
@@ -726,6 +1316,13 @@ const categories = [
       "Time-window anomaly detection (e.g. fraud spikes)",
       "Pattern-based time-series forecasting within DB",
       "Smart DB snapshot recommendation during key events"
+    ],
+    descriptions: [
+      "Finds hidden trends by looking at the order and timing of many events.",
+      "Tracks and analyzes the exact steps users take through your system.",
+      "Spots unusual spikes during certain hours, like sudden fraud at night.",
+      "Predicts what will happen next by analyzing changes over time.",
+      "Recommends making backups or snapshots before/after critical events."
     ]
   },
   {
@@ -736,6 +1333,13 @@ const categories = [
       "DB-driven mentorship suggestion in orgs",
       "Knowledge decay predictor",
       "Successor training pathway generator based on record logs"
+    ],
+    descriptions: [
+      "Stores and shares workflows with notes from top experts for future staff.",
+      "Detects areas where users lack know-how and flags for training.",
+      "Suggests new mentors or leaders based on experience and history.",
+      "Warns when important knowledge is at risk of being lost (e.g. when staff leave).",
+      "Creates customized training for new team members based on actual data patterns."
     ]
   },
   {
@@ -746,11 +1350,16 @@ const categories = [
       "AI overexposure warning for sensitive actions",
       "Usage audit trail with bias flagging reports",
       "User feedback capture with explainability rating tools"
+    ],
+    descriptions: [
+      "Watches AI behavior and warns if usage ever becomes unethical.",
+      "Checks each suggestion for unintended negative impacts.",
+      "Warns users and admins if the AI is being used too much for sensitive cases.",
+      "Records all actions with clear bias or fairness warnings.",
+      "Encourages feedback and tracks which features were clearly explained."
     ]
   }
 ];
-
-
 // Category card creation and UI logic
 function createCategoryCard(category, index) {
   const container = document.createElement('div');
