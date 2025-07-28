@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI-Powered Java+DBMS Project Innovations – LJ University</title>
-<link rel="icon" href="ljku-logo.png" type="image/png" />
-<meta name="description" content="Interactive showcase of 50 innovative AI project categories for Java + DBMS, made for LJ University students."/>
+<title>LJ University Java+DBMS AI Project Demo</title>
 <style>
+
   :root {
     --ljku-blue: #1a237e;
     --ljku-gold: #fbc02d;
@@ -21,46 +20,43 @@
     margin: 0;
     padding: 0;
   }
-.nav {
-  background: var(--ljku-blue);
-  color: var(--ljku-gold);
-  display: flex;
-  align-items: center;
-  padding: 0.4rem 1.1rem 0.4rem 0.7rem;
-  box-shadow: 0 1px 6px #0002;
-  min-height: 56px;
-}
-
-.nav img {
-  max-height: 44px;
-  width: auto;
-  margin-right: 15px;
-  display: block;
-  flex-shrink: 0;
-}
-
-.nav-title {
-  font-weight: bold;
-  font-size: 1.12rem;
-  letter-spacing: 0.5px;
-  flex: 1;
-  line-height: 1.17;
-  white-space: pre-line;
-}
-@media (max-width: 600px) {
   .nav {
-    padding: 0.25rem 0.6rem 0.25rem 0.6rem;
-    min-height: 38px;
+    background: var(--ljku-blue);
+    color: var(--ljku-gold);
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 1.1rem 0.4rem 0.7rem;
+    box-shadow: 0 1px 6px #0002;
+    min-height: 56px;
   }
   .nav img {
-    max-height: 28px;
-    margin-right: 8px;
+    max-height: 44px;
+    width: auto;
+    margin-right: 15px;
+    display: block;
+    flex-shrink: 0;
   }
   .nav-title {
-    font-size: 0.91rem;
+    font-weight: bold;
+    font-size: 1.12rem;
+    letter-spacing: 0.5px;
+    flex: 1;
+    line-height: 1.17;
+    white-space: pre-line;
   }
-}
-
+  @media (max-width: 600px) {
+    .nav {
+      padding: 0.25rem 0.6rem 0.25rem 0.6rem;
+      min-height: 38px;
+    }
+    .nav img {
+      max-height: 28px;
+      margin-right: 8px;
+    }
+    .nav-title {
+      font-size: 0.91rem;
+    }
+  }
   main {
     max-width: 900px;
     margin: 30px auto 0 auto;
@@ -132,22 +128,19 @@
     color: #fbe778;
   }
   .features-list {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s;
-  background: var(--card-bg);
-  padding: 0 22px;
-}
-
-.features-list.open {
-  padding-top: 12px;
-  padding-bottom: 10px;
-  /* Set a max visible height and allow vertical scrolling if needed */
-  max-height: 320px !important; /* Adjust this value as you wish */
-  overflow-y: auto;
-  border-bottom: 1px solid #fbc02d33;
-}
-
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s;
+    background: var(--card-bg);
+    padding: 0 22px;
+  }
+  .features-list.open {
+    padding-top: 12px;
+    padding-bottom: 10px;
+    max-height: 320px !important;  /* Scroll if more features */
+    overflow-y: auto;
+    border-bottom: 1px solid #fbc02d33;
+  }
   .features-list ul {
     padding-left: 14px;
     margin: 0;
@@ -158,15 +151,18 @@
     line-height: 1.58;
     color: #2d3556;
     font-size: 1.045rem;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.11s;
   }
-  .feature-desc {
-  transition: all 0.2s;
-  font-style: italic;
-  border-left: 3px solid #fbc02d;
+  .features-list li:hover {
+    background: #fbc02d18;
+    border-radius: 6px;
   }
   .toggle-icon {
     font-size: 1.15rem;
     transition: transform 0.3s;
+    margin-left: 12px;
   }
   .toggle-icon.open {
     transform: rotate(90deg);
@@ -179,17 +175,29 @@
     font-weight: 500;
     margin-bottom: 10px;
   }
+
+  .feature-desc {
+    transition: all 0.2s;
+    font-style: italic;
+    border-left: 3px solid #fbc02d;
+    max-height: 120px;
+    overflow-y: auto;
+    background: #f2f3fa;
+    padding: 8px 12px;
+    margin: 6px 0 5px 0;
+    border-radius: 7px;
+    color: #1a237e;
+    font-size: 0.99rem;
+    box-shadow: 0 2px 10px #0015a014;
+  }
   @media (max-width: 720px) {
     main {
       margin: 0.8em 0.6em 0 0.6em;
       padding: 13px 5vw 22px 5vw;
       border-radius: 12px;
     }
-    .nav {
-      padding: 0.4rem 0.7rem;
-    }
-    .nav img {
-      height: 38px;
+    .made-for {
+      font-size: 0.99rem;
     }
   }
   @media (max-width: 430px) {
@@ -216,6 +224,7 @@
     padding-bottom: 18px;
     padding-top: 11px;
   }
+
 </style>
 </head>
 <body>
@@ -244,10 +253,10 @@
   &copy; 2025 LJ University | For Educational Use | Themed and generated with Perplexity AI
 </footer>
 
-<script>
-// Below, paste your full 50-category data structure (250 features). Here are just 2 samples:
 
-  const categories = [
+<script>
+// MINIMAL DEMO DATA!
+const categories = [
   {
     title: "1. Quantum-Inspired Data Algorithms",
     features: [
@@ -328,7 +337,7 @@
     descriptions: [
       "Creates artificial (but realistic) data using current database patterns, ideal for safe testing.",
       "Simulates fake but realistic transactions in Java to test system behavior.",
-      "Uses AI to stress test systems by simulating hundreds or thousands of fake users.',
+      "Uses AI to stress test systems by simulating hundreds or thousands of fake users.",
       "Exports data with sensitive information hidden, allowing safe sharing or testing.",
       "Automatically generates and uses fake user input for comparing different algorithms (A/B testing)."
     ]
@@ -651,7 +660,7 @@
     descriptions: [
       "Recommends new items or upgrades based on what users bought or viewed before.",
       "Changes the site or app content on the fly to fit each user’s needs.",
-      "Suggests better ways to complete tasks complete tasks based on current and past user behavior.",
+      "Suggests better ways to complete tasks based on current and past user behavior.",
       "Finds and brings up similar records and solutions automatically.",
       "Advises users of helpful extras based on prior selections."
     ]
@@ -928,7 +937,7 @@
       "Finds and fixes forms that are difficult for users with disabilities."
     ]
   },
-    {
+  {
     title: "41. Federated Intelligence",
     features: [
       "Distributed learning across branch databases",
@@ -1099,7 +1108,7 @@
     ]
   }
 ];
-// Category card creation and UI logic
+// DOM Safe, no innerHTML!
 function createCategoryCard(category, index) {
   const container = document.createElement('div');
   container.className = 'category';
@@ -1107,89 +1116,62 @@ function createCategoryCard(category, index) {
   const header = document.createElement('div');
   header.className = 'category-header';
   header.tabIndex = 0;
-  header.setAttribute('role', 'button');
-  header.setAttribute('aria-expanded', 'false');
-  header.setAttribute('aria-controls', `features-${index}`);
-  header.id = `category-header-${index}`;
-  header.innerHTML = `
-    <span>${category.title}</span>
-    <span class="toggle-icon">&#9656;</span>
-  `;
+
+  const titleSpan = document.createElement('span');
+  titleSpan.textContent = category.title;
+  const toggleSpan = document.createElement('span');
+  toggleSpan.className = 'toggle-icon';
+  toggleSpan.innerHTML = '&#9656;';
+
+  header.appendChild(titleSpan);
+  header.appendChild(toggleSpan);
 
   const featuresDiv = document.createElement('div');
   featuresDiv.className = 'features-list';
   featuresDiv.id = `features-${index}`;
-  featuresDiv.setAttribute('aria-labelledby', `category-header-${index}`);
 
   const ul = document.createElement('ul');
-
   category.features.forEach((feature, fi) => {
     const li = document.createElement('li');
     li.textContent = feature;
-    li.style.cursor = "pointer";
-    li.style.position = "relative";
-
-    // Expandable description element (initially hidden)
     const descDiv = document.createElement('div');
     descDiv.className = "feature-desc";
-    descDiv.style.display = "none";
-    descDiv.style.background = "#f2f3fa";
-    descDiv.style.padding = "8px 12px";
-    descDiv.style.margin = "6px 0 5px 0";
-    descDiv.style.borderRadius = "7px";
-    descDiv.style.color = "#1a237e";
-    descDiv.style.fontSize = "0.99rem";
-    descDiv.style.boxShadow = "0 2px 10px #0015a014";
-
-    descDiv.textContent = (category.descriptions && category.descriptions[fi]) || "Description coming soon.";
-
-    // Feature click: toggle description and collapse any others in this category
+    descDiv.textContent = category.descriptions && category.descriptions[fi] || "Description coming soon.";
     li.addEventListener('click', (e) => {
-      // Only allow one open within this UL
       ul.querySelectorAll('.feature-desc').forEach(desc => {
         if (desc !== descDiv) desc.style.display = "none";
       });
-      // Toggle
       descDiv.style.display = (descDiv.style.display === "none" ? "block" : "none");
       e.stopPropagation();
     });
-
     li.appendChild(descDiv);
     ul.appendChild(li);
   });
-
   featuresDiv.appendChild(ul);
 
-  header.addEventListener('click', () => toggleFeatures(featuresDiv, header));
-  header.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      toggleFeatures(featuresDiv, header);
+  header.addEventListener('click', () => {
+    const isOpen = featuresDiv.classList.contains('open');
+    if (isOpen) {
+      featuresDiv.style.maxHeight = null;
+      featuresDiv.classList.remove('open');
+      toggleSpan.classList.remove('open');
+    } else {
+      featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
+      featuresDiv.classList.add('open');
+      toggleSpan.classList.add('open');
     }
   });
 
   container.appendChild(header);
   container.appendChild(featuresDiv);
-
   return container;
 }
-  
+// Render demo
+const cc = document.getElementById('categoriesContainer');
+categories.forEach((cat, i) => cc.appendChild(createCategoryCard(cat,i)));
 
-function toggleFeatures(featuresDiv, header) {
-  const isOpen = featuresDiv.classList.contains('open');
-  if (isOpen) {
-    featuresDiv.style.maxHeight = null;
-    featuresDiv.classList.remove('open');
-    header.setAttribute('aria-expanded', 'false');
-    header.querySelector('.toggle-icon').classList.remove('open');
-  } else {
-    featuresDiv.style.maxHeight = featuresDiv.scrollHeight + "px";
-    featuresDiv.classList.add('open');
-    header.setAttribute('aria-expanded', 'true');
-    header.querySelector('.toggle-icon').classList.add('open');
-  }
-}
 
+// Render and search logic
 const categoriesContainer = document.getElementById('categoriesContainer');
 function renderCategories(list) {
   categoriesContainer.innerHTML = '';
@@ -1217,6 +1199,26 @@ searchBox.addEventListener('input', () => {
   });
   renderCategories(filtered);
 });
+
+// Optional: Close expanded descriptions/categories if user clicks elsewhere
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.features-list.open').forEach(panel => {
+    if (!panel.parentNode.contains(e.target)) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+      const header = panel.parentNode.querySelector('.category-header');
+      if (header) header.querySelector('.toggle-icon').classList.remove('open');
+    }
+  });
+});
+
+
 </script>
+<button id="scrollUp" 
+  style="position:fixed;bottom:28px;right:18px;padding:10px 16px;background:#1a237e;color:#fff;border-radius:26px;border:none;cursor:pointer;display:none;z-index:999;"
+  aria-label="Scroll to top">
+  ↑ Top
+</button>
+
 </body>
 </html>
